@@ -70,6 +70,14 @@ class Motif():
         self.modifier   = modifier
         self.offset     = 0
 
+    def __add__(self,other):
+        if isinstance(other,Duration):
+            self.offset = other
+        elif isinstance(other, int):
+            self.offset
+        else:
+            raise Exception("Cant add type " + str(type(other)) + " to Motif")
+
 def retrograde(m):
     return Motif(m.name + '_retro', m.intervales.reverse(), m.durations.reverse())
 
